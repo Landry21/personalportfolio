@@ -188,17 +188,17 @@ img {
 }
 
 /* SOCIAL ICONS */
-.social-icons {
-
+.social-links {
+    font-size: 40px;
 }
 
 .social-icons a {
-    width: 70px;
-    height: 70px;
+    width: 40px;
+    height: 40px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     background-color: var(--color-base);
     border-radius: 100px;
-    font-size: 40px;
+    font-size: 24px;
 }
