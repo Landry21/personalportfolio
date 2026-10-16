@@ -8,45 +8,84 @@
       name="description"
       content="Landry Salomon is a Boston-based Technical Product Manager who turns complex, fragmented problems into structured, usable systems."
     />
+    <link rel="canonical" href="https://lbs.world/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lbs.world/" />
     <meta property="og:title" content="Landry Salomon | Technical Product Manager" />
     <meta
       property="og:description"
       content="Turning complex, fragmented problems into structured, usable systems."
     />
-    <meta property="og:image" content="./assets/images/profile.jpg" />
-    <meta property="og:type" content="website" />
-    <link rel="icon" href="./assets/images/profile.jpg" />
-    <!---CSS Links --->
+    <meta property="og:image" content="https://lbs.world/assets/images/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f1724" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="./assets/images/favicon.svg" type="image/svg+xml" />
 
+    <!-- Set the theme before first paint so there is no flash of the wrong colours -->
+    <script>
+      (function () {
+        var theme;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (e) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", theme);
+        document.documentElement.classList.add("js");
+      })();
+    </script>
+
+    <!---CSS Links --->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap"
+    />
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./assets/css/aos.css" />
-    <link rel="stylesheet" href="./assets/css/line-awesome.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
-  <body data-bs-spy="scroll" data-bs-target=".navbar">
+  <body>
     <!--- Navbar Section -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container flex-lg-column">
         <a class="navbar-brand mx-lg-auto mb-lg-4" href="#home">
           <span class="h3 fw-bold d-block d-lg-none">Landry Salomon</span>
           <img
             src="./assets/images/profile.jpg"
             class="d-none d-lg-block rounded-circle"
+            width="160"
+            height="160"
             alt="Portrait of Landry Salomon"
           />
           <span class="d-none d-lg-block brand-name mt-3">Landry Salomon</span>
         </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="nav-actions d-flex align-items-center">
+          <button
+            class="theme-toggle d-lg-none"
+            type="button"
+            aria-label="Switch colour theme"
+            data-theme-toggle
+          >
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </button>
+          <button
+            class="navbar-toggler"
+            type="button"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="toggler-bar"></span>
+            <span class="toggler-bar"></span>
+            <span class="toggler-bar"></span>
+          </button>
+        </div>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
             <li class="nav-item">
@@ -74,6 +113,15 @@
               >
             </li>
           </ul>
+          <button
+            class="theme-toggle d-none d-lg-inline-flex mx-auto mt-4"
+            type="button"
+            aria-label="Switch colour theme"
+            data-theme-toggle
+          >
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </button>
         </div>
       </div>
     </nav>
@@ -85,12 +133,17 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-10">
-              <h6 class="text-brand eyebrow" data-aos="fade-up">HI, I'M LANDRY</h6>
-              <h1 class="display-4 fw-bold" data-aos="fade-up">
+              <h6 class="text-brand eyebrow" data-reveal>HI, I'M LANDRY</h6>
+              <h1 class="display-4 fw-bold" data-reveal>
                 I'M A <span class="text-brand">TECHNICAL PRODUCT MANAGER</span>, BASED IN
                 BOSTON, MA
               </h1>
-              <p class="lead mt-2 mb-4" data-aos="fade-up" data-aos-delay="300">
+              <p class="currently mt-3" data-reveal data-delay="150">
+                <span class="pulse" aria-hidden="true"></span>
+                <strong>Currently:</strong> securing AI systems in the banking industry and
+                exploring their capabilities
+              </p>
+              <p class="lead mt-3 mb-4" data-reveal data-delay="300">
                 My journey in tech started when I was 5, watching TV with my dad. He wanted me
                 to be a lawyer, but when I started fixing all his phone problems, I had won the
                 argument. My first lines of code were on paper, and I can tell you right now
@@ -99,18 +152,18 @@
                 platforms, and today I lead products that keep AI-driven systems secure and
                 usable at a global financial institution.
               </p>
-              <p class="tagline mb-5" data-aos="fade-up" data-aos-delay="400">
+              <p class="tagline mb-5" data-reveal data-delay="400">
                 What ties it all together: I find the problems nobody has spotted yet, and I make
                 systems work the way people actually work.
               </p>
-              <div data-aos="fade-up" data-aos-delay="600">
+              <div data-reveal data-delay="500">
                 <a href="#work" class="btn btn-brand me-3">Explore My Work</a>
                 <a href="#contact" class="link-custom">Get in Touch</a>
               </div>
             </div>
           </div>
           <!--impact stats-->
-          <div class="row gy-4 mt-5 stats" data-aos="fade-up" data-aos-delay="800">
+          <div class="row gy-4 mt-5 stats" data-reveal data-delay="600">
             <div class="col-6 col-md-3">
               <h2 class="text-brand mb-1">$5B</h2>
               <p class="mb-0">in daily operations kept running</p>
@@ -135,14 +188,14 @@
       <!--Work-->
       <section id="work" class="full-height px-lg-5">
         <div class="container">
-          <div class="row pb-4" data-aos="fade-up">
+          <div class="row pb-4" data-reveal>
             <div class="col-lg-8">
-              <h6 class="text-brand">WORK</h6>
+              <h6 class="text-brand eyebrow">WORK</h6>
               <h1>Where I've Made an Impact</h1>
             </div>
           </div>
           <div class="row gy-4">
-            <div class="col-md-6" data-aos="fade-up">
+            <div class="col-md-6" data-reveal>
               <div class="card-custom h-100 p-4 rounded-4 bg-base shadow-effect">
                 <p class="work-meta text-brand mb-2">2026 – Present · Boston, MA</p>
                 <h4>Technical Product Manager</h4>
@@ -158,7 +211,7 @@
               </div>
             </div>
 
-            <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-md-6" data-reveal data-delay="150">
               <div class="card-custom h-100 p-4 rounded-4 bg-base shadow-effect">
                 <p class="work-meta text-brand mb-2">2023 – 2026 · Brattleboro, VT</p>
                 <h4>Technical Manager / Application Manager</h4>
@@ -173,7 +226,7 @@
               </div>
             </div>
 
-            <div class="col-md-6" data-aos="fade-up">
+            <div class="col-md-6" data-reveal>
               <div class="card-custom h-100 p-4 rounded-4 bg-base shadow-effect">
                 <p class="work-meta text-brand mb-2">2021 – 2023 · Cedar City, UT</p>
                 <h4>System Support Engineer</h4>
@@ -188,7 +241,7 @@
               </div>
             </div>
 
-            <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-md-6" data-reveal data-delay="150">
               <div class="card-custom h-100 p-4 rounded-4 bg-base shadow-effect">
                 <p class="work-meta text-brand mb-2">2020 – 2021 · Cedar City, UT</p>
                 <h4>Web Developer</h4>
@@ -210,17 +263,17 @@
       <!-- Services -->
       <section id="services" class="full-height px-lg-5">
         <div class="container">
-          <div class="row pb-4" data-aos="fade-up">
+          <div class="row pb-4" data-reveal>
             <div class="col-lg-8">
-              <h6 class="text-brand">EXPERTISE</h6>
+              <h6 class="text-brand eyebrow">EXPERTISE</h6>
               <h1>What I Bring to the Table</h1>
             </div>
           </div>
           <div class="row gy-4">
-            <div class="col-md-4" data-aos="fade-up">
+            <div class="col-md-4" data-reveal>
               <div class="service h-100 p-4 bg-base rounded-4 shadow-effect">
                 <div class="iconbox rounded-4">
-                  <i class="las la-project-diagram"></i>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>
                 </div>
                 <h5 class="mt-4 mb-2">Technical Product Management</h5>
                 <ul>
@@ -232,10 +285,10 @@
                 </ul>
               </div>
             </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-md-4" data-reveal data-delay="150">
               <div class="service h-100 p-4 bg-base rounded-4 shadow-effect">
                 <div class="iconbox rounded-4">
-                  <i class="las la-shield-alt"></i>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
                 </div>
                 <h5 class="mt-4 mb-2">AI &amp; Security</h5>
                 <ul>
@@ -247,10 +300,10 @@
                 </ul>
               </div>
             </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+            <div class="col-md-4" data-reveal data-delay="300">
               <div class="service h-100 p-4 bg-base rounded-4 shadow-effect">
                 <div class="iconbox rounded-4">
-                  <i class="las la-cogs"></i>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>
                 </div>
                 <h5 class="mt-4 mb-2">Systems &amp; Platforms</h5>
                 <ul>
@@ -270,9 +323,9 @@
       <!--ABOUT-->
       <section id="about" class="full-height px-lg-5">
         <div class="container">
-          <div class="row pb-4" data-aos="fade-up">
+          <div class="row pb-4" data-reveal>
             <div class="col-lg-8">
-              <h6 class="text-brand">ABOUT</h6>
+              <h6 class="text-brand eyebrow">ABOUT</h6>
               <h1>How I Work</h1>
               <p class="lead mt-3">
                 I combine systems thinking with hands-on execution. I own problems end to end,
@@ -286,15 +339,15 @@
           <div class="row gy-5">
             <!--Left side-->
             <div class="col-lg-6">
-              <h3 class="mb-4" data-aos="fade-up" data-aos-delay="300">Education</h3>
+              <h3 class="mb-4" data-reveal>Education</h3>
               <div class="row gy-4">
-                <div class="col-12" data-aos="fade-up" data-aos-delay="600">
+                <div class="col-12" data-reveal data-delay="150">
                   <div class="bg-base p-4 rounded-4 shadow-effect">
                     <h4>B.S. in Computer Science</h4>
                     <p class="text-brand mb-0">Southern Utah University</p>
                   </div>
                 </div>
-                <div class="col-12" data-aos="fade-up" data-aos-delay="600">
+                <div class="col-12" data-reveal data-delay="150">
                   <div class="bg-base p-4 rounded-4 shadow-effect">
                     <h4>AWS Cloud Practitioner</h4>
                     <p class="text-brand mb-0">Amazon Web Services</p>
@@ -304,9 +357,9 @@
             </div>
             <!--Right side-->
             <div class="col-lg-6">
-              <h3 class="mb-4" data-aos="fade-up" data-aos-delay="300">Side Projects</h3>
+              <h3 class="mb-4" data-reveal>Side Projects</h3>
               <div class="row gy-4">
-                <div class="col-12" data-aos="fade-up" data-aos-delay="600">
+                <div class="col-12" data-reveal data-delay="150">
                   <div class="bg-base p-4 rounded-4 shadow-effect">
                     <h4>Budget Calculator</h4>
                     <p class="mb-3">
@@ -332,8 +385,8 @@
       <section id="contact" class="full-height px-lg-5">
         <div class="container">
           <div class="row justify-content-center text-center">
-            <div class="col-lg-8 pb-4" data-aos="fade-up">
-              <h6 class="text-brand">CONTACT</h6>
+            <div class="col-lg-8 pb-4" data-reveal>
+              <h6 class="text-brand eyebrow">CONTACT</h6>
               <h1>Let's Build Something That Works</h1>
               <p class="lead mt-3">
                 Have a messy problem, a product to ship or just want to talk tech? My inbox is
@@ -341,13 +394,15 @@
               </p>
             </div>
           </div>
-          <div class="row gy-4 justify-content-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="row gy-4 justify-content-center" data-reveal data-delay="150">
             <div class="col-md-5 col-lg-4">
               <a
                 href="mailto:benlandrysalomon@gmail.com"
                 class="contact-card d-block h-100 p-4 bg-base rounded-4 shadow-effect text-center"
               >
-                <div class="iconbox rounded-4 mx-auto"><i class="las la-envelope"></i></div>
+                <div class="iconbox rounded-4 mx-auto">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
                 <h5 class="mt-4 mb-1">Email</h5>
                 <p class="mb-0">benlandrysalomon@gmail.com</p>
               </a>
@@ -359,7 +414,9 @@
                 rel="noopener"
                 class="contact-card d-block h-100 p-4 bg-base rounded-4 shadow-effect text-center"
               >
-                <div class="iconbox rounded-4 mx-auto"><i class="lab la-linkedin-in"></i></div>
+                <div class="iconbox rounded-4 mx-auto">
+                  <svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+                </div>
                 <h5 class="mt-4 mb-1">LinkedIn</h5>
                 <p class="mb-0">in/landry-salomon</p>
               </a>
@@ -383,15 +440,15 @@
                   target="_blank"
                   rel="noopener"
                   aria-label="LinkedIn"
-                  ><i class="lab la-linkedin"></i
-                ></a>
+                  ><svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a
+                >
                 <a
                   href="https://www.github.com/landry21"
                   target="_blank"
                   rel="noopener"
                   aria-label="GitHub"
-                  ><i class="lab la-github"></i
-                ></a>
+                  ><svg class="filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></svg></a
+                >
               </div>
             </div>
           </div>
@@ -401,9 +458,6 @@
     </div>
     <!--- End of Content Wrapper-->
 
-    <!-- Scripts links and sections -->
-    <script src="./assets/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/js/aos.js"></script>
-    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/main.js" defer></script>
   </body>
 </html>
